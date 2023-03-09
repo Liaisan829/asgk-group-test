@@ -1,0 +1,12 @@
+<div class='wrapper'>
+	<form class='form' [formGroup]='form'>
+		<app-input formControlName='login' placeholder='Ваше имя'></app-input>
+		<app-input formControlName='password' placeholder='Пароль' [password]='true'></app-input>
+
+		<button (click)='submit()' [disabled]='formIsValid' class='form__btn'>Войти</button>
+	</form>
+</div>
+
+<div class='logo'>
+	<span>ASGK-GROUP</span>
+</div>
