@@ -7,13 +7,15 @@ import { IconComponent } from '@components/ui/icon/icon.component';
 import { SignInComponent } from '@pages/sign-in/sign-in.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { InputComponent } from '@components/forms/input/input.component';
+import { ErrorComponent } from '@components/ui/error/error.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		IconComponent,
 		SignInComponent,
-		InputComponent
+		InputComponent,
+		ErrorComponent
 	],
 	imports: [
 		BrowserModule,

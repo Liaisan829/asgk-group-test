@@ -1,7 +1,17 @@
 <div class='wrapper'>
 	<form class='form' [formGroup]='form'>
 		<app-input formControlName='login' placeholder='Ваше имя'></app-input>
+		<ng-container *ngIf='hasError("login", "required")'>
+			<span class='form__error'>Это поле обязательно</span>
+		</ng-container>
+
 		<app-input formControlName='password' placeholder='Пароль' [password]='true'></app-input>
+		<ng-container *ngIf='hasError("password", "required")'>
+			<span class='form__error'>Это поле обязательно</span>
+		</ng-container>
+		<ng-container *ngIf='hasError("password", "minlength")'>
+			<span class='form__error'>Минимальная длина пароля 5 символов</span>
+		</ng-container>
 
 		<button (click)='submit()' [disabled]='formIsValid' class='form__btn'>Войти</button>
 	</form>

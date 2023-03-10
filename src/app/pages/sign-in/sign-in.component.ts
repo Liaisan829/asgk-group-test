@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { PasswordValidators } from '@utils/validations';
 
 @Component({
 	selector: 'app-sign-in',
@@ -19,7 +20,7 @@ export class SignInComponent {
 	private buildForm() {
 		this.form = this.fb.group({
 			login: ['', [Validators.required]],
-			password: ['', [Validators.required]]
+			password: ['', [...PasswordValidators]]
 		});
 	}
 
@@ -29,5 +30,13 @@ export class SignInComponent {
 
 	submit() {
 
+	}
+
+	control(control: string) {
+		return this.form.get(control);
+	}
+
+	hasError(formControlName: string, errorName: string) {
+		return (this.control(formControlName)?.touched || this.control(formControlName)?.dirty) && this.control(formControlName)?.hasError(errorName)
 	}
 }
