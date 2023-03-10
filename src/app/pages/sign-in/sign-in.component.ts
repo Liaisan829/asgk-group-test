@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PasswordValidators } from '@utils/validations';
+import { AuthService } from "@services/auth.service";
+import { takeUntil } from "rxjs";
+import { DestroyService } from "@services/destroy.service";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: 'app-sign-in',
@@ -12,7 +16,10 @@ export class SignInComponent {
 	form!: FormGroup;
 
 	constructor(
-		private fb: FormBuilder
+		private fb: FormBuilder,
+		private authService: AuthService,
+		private destroy$: DestroyService,
+		private router: Router
 	) {
 		this.buildForm();
 	}
@@ -29,7 +36,18 @@ export class SignInComponent {
 	}
 
 	submit() {
+		this.authService.signIn(this.form.value)
+			.pipe(takeUntil(this.destroy$))
+			.subscribe({
+				next: (res) => {
+					this.authService.authorize(res.auth_token!);
 
+					this.router.navigate(['/']);
+				},
+				error: (err) => {
+					console.log(err);
+				}
+			})
 	}
 
 	control(control: string) {
