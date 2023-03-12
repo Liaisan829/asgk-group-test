@@ -1,0 +1,14 @@
+@import 'mixins'
+
+\:host
+	padding: 32px
+	display: block
+	background: white
+	box-shadow: 0 4px 24px $c-base-12
+	border-radius: 24px
+	max-height: 100vh
+	overflow: auto
+	outline: none
+
+	@media (max-height: 940px)
+		max-height: calc(100vh - 160px)

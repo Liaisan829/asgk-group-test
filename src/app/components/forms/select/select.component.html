@@ -1,0 +1,16 @@
+<button class='dropdown' (click)='toggle()'>
+	<span class='dropdown__value'>
+		{{placeholder}}
+	</span>
+	<span class='dropdown__icon'>
+		<app-icon name='arrow-down'></app-icon>
+	</span>
+</button>
+
+<div class='options__wrapper'>
+	<div class='options' *ngIf='isOpen'>
+		<ng-container *ngFor='let item of optionsList'>
+			<button class='options__btn' (click)='selectItem(item)'>{{item.fio}}</button>
+		</ng-container>
+	</div>
+</div>
