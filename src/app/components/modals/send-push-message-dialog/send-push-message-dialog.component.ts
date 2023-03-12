@@ -5,6 +5,7 @@ import { PushMessageService } from "@services/push-message.service";
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { model_Pass } from "@models/model_Pass";
 import { takeUntil } from "rxjs";
+import { ToastService } from "@services/toast.service";
 
 interface DialogData {
 	users: model_Pass[];
@@ -26,6 +27,7 @@ export class SendPushMessageDialogComponent {
 		private fb: FormBuilder,
 		private destroy$: DestroyService,
 		private pushMessageService: PushMessageService,
+		private toast: ToastService
 	) {
 		this.buildForm();
 	}
@@ -43,8 +45,16 @@ export class SendPushMessageDialogComponent {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe({
 					next: () => {
+						this.toast.success('Push-сообщение успешно отправлено');
 					},
-					error: () => {
+					error: (err) => {
+						switch (err.status) {
+							case 400:
+								this.toast.error('В это время уже есть запланированное событие. Пожалуйста, укажите другое время!');
+								break;
+							default:
+								this.toast.error(err);
+						}
 					},
 					complete: () => {
 						this.dialog.close(true);

@@ -24,6 +24,8 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { AddClientDialogComponent } from '@components/modals/add-client-dialog/add-client-dialog.component';
 import { ConfirmComponent } from '@components/modals/confirm/confirm.component';
 import { DiscountPipe } from '@pipes/discount.pipe';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
 	declarations: [
@@ -48,7 +50,12 @@ import { DiscountPipe } from '@pipes/discount.pipe';
 		HttpClientModule,
 		CdkTableModule,
 		DialogModule,
-		OverlayModule
+		OverlayModule,
+		BrowserAnimationsModule,
+		ToastrModule.forRoot({
+			timeOut: 3000,
+			closeButton: true,
+		})
 	],
 	providers: [
 		{

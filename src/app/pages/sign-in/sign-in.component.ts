@@ -5,6 +5,7 @@ import { AuthService } from "@services/auth.service";
 import { takeUntil } from "rxjs";
 import { DestroyService } from "@services/destroy.service";
 import { Router } from "@angular/router";
+import { ToastService } from "@services/toast.service";
 
 @Component({
 	selector: 'app-sign-in',
@@ -19,7 +20,8 @@ export class SignInComponent {
 		private fb: FormBuilder,
 		private authService: AuthService,
 		private destroy$: DestroyService,
-		private router: Router
+		private router: Router,
+		private toast: ToastService,
 	) {
 		this.buildForm();
 	}
@@ -45,7 +47,7 @@ export class SignInComponent {
 					this.router.navigate(['/']);
 				},
 				error: (err) => {
-					console.log(err);
+					this.toast.error(err.err.message);
 				}
 			})
 	}
