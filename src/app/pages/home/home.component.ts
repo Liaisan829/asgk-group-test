@@ -7,6 +7,7 @@ import { Dialog } from "@angular/cdk/dialog";
 import {
 	SendPushMessageDialogComponent
 } from "@components/modals/send-push-message-dialog/send-push-message-dialog.component";
+import { AddClientDialogComponent } from '@components/modals/add-client-dialog/add-client-dialog.component';
 
 @Component({
 	selector: 'app-home',
@@ -52,7 +53,23 @@ export class HomeComponent {
 				filter(dialogResult => !!dialogResult)
 			)
 			.subscribe({
-				next: () => {}
+				next: () => {
+				}
+			});
+	}
+
+	addClient() {
+		this.dialog.open(AddClientDialogComponent, {
+			hasBackdrop: true,
+			width: '500px',
+			backdropClass: 'dialog-backdrop',
+		}).closed
+			.pipe(
+				takeUntil(this.destroy$),
+				filter(dialogResult => !!dialogResult)
+			)
+			.subscribe(() => {
+				this.getClients();
 			});
 	}
 }

@@ -21,6 +21,7 @@ import { DialogHeaderComponent } from '@components/ui/dialog-header/dialog-heade
 import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-footer.component';
 import { SelectComponent } from '@components/forms/select/select.component';
 import { OverlayModule } from "@angular/cdk/overlay";
+import { AddClientDialogComponent } from './components/modals/add-client-dialog/add-client-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +35,7 @@ import { OverlayModule } from "@angular/cdk/overlay";
 		DialogHeaderComponent,
 		DialogFooterComponent,
 		SelectComponent,
+  AddClientDialogComponent,
 	],
 	imports: [
 		BrowserModule,
