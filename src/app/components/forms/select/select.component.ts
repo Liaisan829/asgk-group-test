@@ -44,10 +44,10 @@ export class SelectComponent {
 	}
 
 	selectItem(value: any): void {
-		this.value = value.user_id;
+		this.value = String(value.user_id);
 		this.placeholder = value.fio;
 		this.isOpen = false;
-		this.onChangeCallback(value.user_id)
+		this.onChangeCallback(this.value)
 		this.onTouchedCallback();
 	}
 }
