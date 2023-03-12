@@ -1,18 +1,18 @@
 <app-dialog>
 	<app-dialog-header>Добавление клиента</app-dialog-header>
 	<form [formGroup]='form' class='form'>
-		<input formControlName='template' placeholder='Шаблон'>
-		<input formControlName='first_name' placeholder='Имя'>
-		<input formControlName='last_name' placeholder='Фамилия'>
-		<input formControlName='pat_name' placeholder='Отчество'>
-		<input formControlName='phone' placeholder='Номер телефона'>
-		<input formControlName='email' placeholder='Почта'>
-		<input type="text" formControlName='birthday' placeholder='Дата рождения' #dateInput (focus)="dateInput.type='date'">
-		<input type="text" formControlName='gender' placeholder='Пол'>
-		<input type="text" formControlName='barcode' placeholder='Штрихкод'>
-		<input type="text" formControlName='discount' placeholder='Скидка'>
-		<input type="text" formControlName='bonus' placeholder='Бонус'>
-		<input type="text" formControlName='loyalty_level' placeholder='Уровень лояльности'>
+		<input type='text' formControlName='template' placeholder='Шаблон'>
+		<input type='text' formControlName='first_name' placeholder='Имя'>
+		<input type='text' formControlName='last_name' placeholder='Фамилия'>
+		<input type='text' formControlName='pat_name' placeholder='Отчество'>
+		<input type='text' formControlName='phone' placeholder='Номер телефона'>
+		<input type='email' formControlName='email' placeholder='Почта'>
+		<input type='text' formControlName='birthday' placeholder='Дата рождения' #dateInput (focus)="dateInput.type='date'">
+		<app-select [optionsList]='genders' placeholder='Пол' formControlName='gender'></app-select>
+		<input type='text' formControlName='barcode' placeholder='Штрихкод'>
+		<input type='text' formControlName='discount' placeholder='Скидка'>
+		<input type='number' formControlName='bonus' placeholder='Бонус'>
+		<app-select [optionsList]='loyalty_levels' placeholder='Уровень лояльности' formControlName='loyalty_level'></app-select>
 	</form>
 	<app-dialog-footer>
 		<button (click)='addClient()' class='form__btn' [disabled]='formIsValid'>Добавить</button>

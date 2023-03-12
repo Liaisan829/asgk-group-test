@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
-import { model_Pass } from "@models/model_Pass";
 
 @Component({
 	selector: 'app-select',
@@ -16,7 +15,7 @@ import { model_Pass } from "@models/model_Pass";
 	]
 })
 export class SelectComponent {
-	@Input() optionsList: Array<model_Pass> = [];
+	@Input() optionsList: string[] = [];
 	@Input() placeholder: string = ''
 	isOpen: boolean = false
 	value: string = '';
@@ -44,8 +43,8 @@ export class SelectComponent {
 	}
 
 	selectItem(value: any): void {
-		this.value = String(value.user_id);
-		this.placeholder = value.fio;
+		this.value = value;
+		this.placeholder = value;
 		this.isOpen = false;
 		this.onChangeCallback(this.value)
 		this.onTouchedCallback();

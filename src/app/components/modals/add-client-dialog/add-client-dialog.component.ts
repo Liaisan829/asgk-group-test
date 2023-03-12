@@ -14,6 +14,8 @@ import { ToastService } from "@services/toast.service";
 })
 export class AddClientDialogComponent {
 	form!: FormGroup;
+	genders: Array<string> = ["м", "ж"];
+	loyalty_levels: Array<string> = ['Основной', 'Золотой', 'Серебряный'];
 
 	constructor(
 		private fb: FormBuilder,
