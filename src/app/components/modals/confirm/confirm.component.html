@@ -1,0 +1,10 @@
+<app-dialog>
+	<app-dialog-header>{{ data.header }}</app-dialog-header>
+	<div>
+		<div>{{ data.text }}</div>
+	</div>
+	<app-dialog-footer>
+		<button (click)='dialogRef.close()'>{{ data.cancel }}</button>
+		<button (click)='dialogRef.close(true)'>{{ data.confirm }}</button>
+	</app-dialog-footer>
+</app-dialog>
