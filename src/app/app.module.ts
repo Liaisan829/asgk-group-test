@@ -10,6 +10,8 @@ import { InputComponent } from '@components/forms/input/input.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { UrlInterceptorService } from "@services/url-interceptor.service";
 import { AuthInterceptorService } from "@services/auth-interceptor.service";
+import { HomeComponent } from '@pages/home/home.component';
+import { CdkTableModule } from "@angular/cdk/table";
 
 @NgModule({
 	declarations: [
@@ -17,12 +19,14 @@ import { AuthInterceptorService } from "@services/auth-interceptor.service";
 		IconComponent,
 		SignInComponent,
 		InputComponent,
+		HomeComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		ReactiveFormsModule,
-		HttpClientModule
+		HttpClientModule,
+		CdkTableModule,
 	],
 	providers: [
 		{

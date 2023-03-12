@@ -1,0 +1,87 @@
+<cdk-table [dataSource]='dataSource'>
+	<cdk-header-row *cdkHeaderRowDef='columns; sticky: true'></cdk-header-row>
+
+	<ng-container cdkColumnDef='fio'>
+		<cdk-header-cell *cdkHeaderCellDef class="fio">ФИО</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row' class="fio">
+			{{ row.fio }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='phone'>
+		<cdk-header-cell *cdkHeaderCellDef>Номер телефона</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.phone }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='email'>
+		<cdk-header-cell *cdkHeaderCellDef>Почта</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.email }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='birthday'>
+		<cdk-header-cell *cdkHeaderCellDef>Дата рождения</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.birthday }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='visits'>
+		<cdk-header-cell *cdkHeaderCellDef>Посещений</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.visits }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='discount'>
+		<cdk-header-cell *cdkHeaderCellDef>Скидка</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.discount }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='link'>
+		<cdk-header-cell *cdkHeaderCellDef>Ссылка</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.link }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='bonus'>
+		<cdk-header-cell *cdkHeaderCellDef>Бонусы</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.bonus }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='date_last'>
+		<cdk-header-cell *cdkHeaderCellDef>Последнее посещение</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.date_last }}
+		</cdk-cell>
+	</ng-container>
+
+	<ng-container cdkColumnDef='summ'>
+		<cdk-header-cell *cdkHeaderCellDef>Сумма</cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			{{ row.summ }}
+		</cdk-cell>
+	</ng-container>
+
+	<cdk-row
+		*cdkRowDef='let row; columns: columns'
+	></cdk-row>
+</cdk-table>
