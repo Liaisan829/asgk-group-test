@@ -50,7 +50,7 @@
 		<cdk-header-cell *cdkHeaderCellDef>Скидка</cdk-header-cell>
 
 		<cdk-cell *cdkCellDef='let row'>
-			{{ row.discount }}
+			{{ row.discount | discount}}
 		</cdk-cell>
 	</ng-container>
 
