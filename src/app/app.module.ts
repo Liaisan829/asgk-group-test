@@ -19,6 +19,8 @@ import { DialogComponent } from '@components/ui/dialog/dialog.component';
 import { DialogModule } from "@angular/cdk/dialog";
 import { DialogHeaderComponent } from '@components/ui/dialog-header/dialog-header.component';
 import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-footer.component';
+import { SelectComponent } from '@components/forms/select/select.component';
+import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
 	declarations: [
@@ -31,6 +33,7 @@ import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-foote
 		DialogComponent,
 		DialogHeaderComponent,
 		DialogFooterComponent,
+		SelectComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -38,7 +41,8 @@ import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-foote
 		ReactiveFormsModule,
 		HttpClientModule,
 		CdkTableModule,
-		DialogModule
+		DialogModule,
+		OverlayModule
 	],
 	providers: [
 		{
