@@ -15,6 +15,10 @@ import { CdkTableModule } from "@angular/cdk/table";
 import {
 	SendPushMessageDialogComponent
 } from '@components/modals/send-push-message-dialog/send-push-message-dialog.component';
+import { DialogComponent } from '@components/ui/dialog/dialog.component';
+import { DialogModule } from "@angular/cdk/dialog";
+import { DialogHeaderComponent } from '@components/ui/dialog-header/dialog-header.component';
+import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-footer.component';
 
 @NgModule({
 	declarations: [
@@ -24,6 +28,9 @@ import {
 		InputComponent,
 		HomeComponent,
 		SendPushMessageDialogComponent,
+		DialogComponent,
+		DialogHeaderComponent,
+		DialogFooterComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -31,6 +38,7 @@ import {
 		ReactiveFormsModule,
 		HttpClientModule,
 		CdkTableModule,
+		DialogModule
 	],
 	providers: [
 		{
