@@ -1,0 +1,25 @@
+@import 'colors'
+
+@mixin table
+	cdk-row, cdk-header-row, cdk-footer-row
+		display: flex
+
+	cdk-cell, cdk-header-cell, cdk-footer-cell
+		flex: 1
+
+@mixin text-20-20
+	font-size: 20px
+	line-height: 20px
+
+@mixin text-14-20
+	font-size: 14px
+	line-height: 20px
+
+@mixin error
+	color: $c-error-100
+	margin-top: -32px
+	margin-bottom: 20px
+	white-space: pre-line
+	display: flex
+	flex-direction: column
+	font-size: 12px
