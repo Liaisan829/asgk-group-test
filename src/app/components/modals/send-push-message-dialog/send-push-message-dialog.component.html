@@ -9,8 +9,8 @@
 			</option>
 		</select>
 
-		<input type='datetime-local' formControlName='date_start'>
-		<input type='text' formControlName='push_message' placeholder='Сообщение'>
+		<input type='text' #dateInput (focus)="dateInput.type='datetime-local'" formControlName='date_start' placeholder='Дата отправки'>
+		<input formControlName='push_message' placeholder='Сообщение'>
 	</form>
 	<app-dialog-footer>
 		<button (click)='sendPushMessage()' class='form__btn' [disabled]='formIsValid'>Отправить</button>

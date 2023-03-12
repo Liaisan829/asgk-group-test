@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DestroyService } from "@services/destroy.service";
 import { PushMessageService } from "@services/push-message.service";
@@ -17,6 +17,7 @@ interface DialogData {
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SendPushMessageDialogComponent {
+	@ViewChild('dateInput') dateInput!: HTMLInputElement;
 	form!: FormGroup;
 
 	constructor(
