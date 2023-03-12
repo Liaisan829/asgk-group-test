@@ -1,7 +1,7 @@
 <app-dialog>
 	<app-dialog-header>Отправка PUSH сообщения</app-dialog-header>
 	<form [formGroup]='form' class='form'>
-		<app-select formControlName='user_id' placeholder='Клиенты' [optionsList]='dialogData.users'></app-select>
+<!--		<app-select formControlName='user_id' placeholder='Клиенты' [optionsList]='dialogData.users'></app-select>-->
 
 		<input type='text' #dateInput (focus)="dateInput.type='datetime-local'" formControlName='date_start' placeholder='Дата отправки'>
 

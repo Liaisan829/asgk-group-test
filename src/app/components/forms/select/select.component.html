@@ -10,7 +10,7 @@
 <div class='options__wrapper'>
 	<div class='options' *ngIf='isOpen'>
 		<ng-container *ngFor='let item of optionsList'>
-			<button class='options__btn' (click)='selectItem(item)'>{{item.fio}}</button>
+			<button class='options__btn' (click)='selectItem(item)'>{{item}}</button>
 		</ng-container>
 	</div>
 </div>
