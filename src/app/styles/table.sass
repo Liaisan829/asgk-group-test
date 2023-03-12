@@ -1,0 +1,47 @@
+@import 'mixins'
+
+.cdk-table
+	width: 100%
+	display: block
+	@include text-14-20
+	background: white
+	border-radius: 12px
+	word-break: break-word
+
+.cdk-row, .cdk-header-row
+	display: grid
+	align-items: flex-start
+	column-gap: 16px
+
+.cdk-header-row
+	padding: 16px
+	color: $c-base-56
+	border-bottom: 1px solid $c-base-24
+
+.cdk-table-sticky
+	background: white
+
+.cdk-row
+	display: grid
+	padding: 16px
+	@include text-14-20
+
+	&:is(:first-child)
+		color: $c-base-56
+
+	&:not(:first-child)
+		color: $c-base-88
+
+	&:not(:first-of-type)
+		border-top: 1px solid $c-base-8
+
+	&:hover
+		background: $c-background-surface-4
+		border-radius: 8px
+		border-top-color: white
+
+		& + .cdk-row
+			border-top-color: white
+
+	&.pointer
+		cursor: pointer
