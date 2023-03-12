@@ -1,0 +1,24 @@
+@import 'mixins'
+
+.form
+	display: flex
+	flex-direction: column
+	row-gap: 32px
+
+	&__btn
+		background: $c-background-base
+		border-radius: 8px
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.25)
+		padding: 15px
+		color: $c-base-80
+
+		&:disabled
+			color: $c-base-40
+
+	input
+		width: 100%
+		border-radius: 8px
+		outline: none
+		border: 1px solid $c-base-40
+		padding: 20px 16px
+		@include text-14-20

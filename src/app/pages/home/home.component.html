@@ -1,4 +1,7 @@
-<button (click)='openPushMessageDialog()'>Отправить Push сообщение</button>
+<div class='actions'>
+	<button (click)='openPushMessageDialog()'>Отправить Push сообщение</button>
+	<button (click)='addClient()'>Добавить клиента</button>
+</div>
 
 <cdk-table [dataSource]='dataSource'>
 	<cdk-header-row *cdkHeaderRowDef='columns; sticky: true'></cdk-header-row>

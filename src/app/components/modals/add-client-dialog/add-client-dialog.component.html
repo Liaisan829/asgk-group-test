@@ -1,0 +1,20 @@
+<app-dialog>
+	<app-dialog-header>Добавление клиента</app-dialog-header>
+	<form [formGroup]='form' class='form'>
+		<input formControlName='template' placeholder='Шаблон'>
+		<input formControlName='first_name' placeholder='Имя'>
+		<input formControlName='last_name' placeholder='Фамилия'>
+		<input formControlName='pat_name' placeholder='Отчество'>
+		<input formControlName='phone' placeholder='Номер телефона'>
+		<input formControlName='email' placeholder='Почта'>
+		<input type="text" formControlName='birthday' placeholder='Дата рождения' #dateInput (focus)="dateInput.type='date'">
+		<input type="text" formControlName='gender' placeholder='Пол'>
+		<input type="text" formControlName='barcode' placeholder='Штрихкод'>
+		<input type="text" formControlName='discount' placeholder='Скидка'>
+		<input type="text" formControlName='bonus' placeholder='Бонус'>
+		<input type="text" formControlName='loyalty_level' placeholder='Уровень лояльности'>
+	</form>
+	<app-dialog-footer>
+		<button (click)='addClient()' class='form__btn' [disabled]='formIsValid'>Добавить</button>
+	</app-dialog-footer>
+</app-dialog>
