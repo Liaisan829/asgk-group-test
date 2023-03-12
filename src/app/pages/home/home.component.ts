@@ -9,6 +9,7 @@ import {
 } from "@components/modals/send-push-message-dialog/send-push-message-dialog.component";
 import { AddClientDialogComponent } from '@components/modals/add-client-dialog/add-client-dialog.component';
 import { ConfirmComponent } from "@components/modals/confirm/confirm.component";
+import { sortArray } from "@utils/sort-array";
 
 @Component({
 	selector: 'app-home',
@@ -18,7 +19,7 @@ import { ConfirmComponent } from "@components/modals/confirm/confirm.component";
 })
 export class HomeComponent {
 	dataSource: Array<model_Pass> = [];
-	columns = ['fio', 'phone', 'email', 'birthday', 'visits', 'discount', 'link', 'bonus', 'date_last', 'summ', 'delete'];
+	columns = ['fio', 'phone', 'email', 'birthday', 'visits', 'discount', 'loyalty_level', 'bonus', 'date_last', 'summ', 'delete'];
 
 	constructor(
 		private destroy$: DestroyService,
@@ -97,6 +98,11 @@ export class HomeComponent {
 				next: () => {
 					this.getClients();
 				}
-			})
+			});
+	}
+
+	sort(column: string, asc: boolean) {
+		this.dataSource = sortArray(this.dataSource, column, asc);
+		this.cdr.markForCheck();
 	}
 }

@@ -21,8 +21,9 @@ import { DialogHeaderComponent } from '@components/ui/dialog-header/dialog-heade
 import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-footer.component';
 import { SelectComponent } from '@components/forms/select/select.component';
 import { OverlayModule } from "@angular/cdk/overlay";
-import { AddClientDialogComponent } from './components/modals/add-client-dialog/add-client-dialog.component';
-import { ConfirmComponent } from './components/modals/confirm/confirm.component';
+import { AddClientDialogComponent } from '@components/modals/add-client-dialog/add-client-dialog.component';
+import { ConfirmComponent } from '@components/modals/confirm/confirm.component';
+import { DiscountPipe } from '@pipes/discount.pipe';
 
 @NgModule({
 	declarations: [
@@ -36,8 +37,9 @@ import { ConfirmComponent } from './components/modals/confirm/confirm.component'
 		DialogHeaderComponent,
 		DialogFooterComponent,
 		SelectComponent,
-  AddClientDialogComponent,
-  ConfirmComponent,
+		AddClientDialogComponent,
+		ConfirmComponent,
+		DiscountPipe,
 	],
 	imports: [
 		BrowserModule,

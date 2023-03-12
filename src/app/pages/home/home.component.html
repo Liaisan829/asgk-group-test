@@ -7,9 +7,19 @@
 	<cdk-header-row *cdkHeaderRowDef='columns; sticky: true'></cdk-header-row>
 
 	<ng-container cdkColumnDef='fio'>
-		<cdk-header-cell *cdkHeaderCellDef class="fio">ФИО</cdk-header-cell>
+		<cdk-header-cell *cdkHeaderCellDef class='fio'>
+			<span>ФИО</span>
+			<div class='fio__btns'>
+				<button (click)="sort('fio', true)">
+					<app-icon name='arrow-top'></app-icon>
+				</button>
+				<button (click)="sort('fio', false)">
+					<app-icon name='arrow-down'></app-icon>
+				</button>
+			</div>
+		</cdk-header-cell>
 
-		<cdk-cell *cdkCellDef='let row' class="fio">
+		<cdk-cell *cdkCellDef='let row' class='fio'>
 			{{ row.fio }}
 		</cdk-cell>
 	</ng-container>
@@ -39,33 +49,33 @@
 	</ng-container>
 
 	<ng-container cdkColumnDef='visits'>
-		<cdk-header-cell *cdkHeaderCellDef>Посещений</cdk-header-cell>
+		<cdk-header-cell *cdkHeaderCellDef class='visits'>Посещений</cdk-header-cell>
 
-		<cdk-cell *cdkCellDef='let row'>
+		<cdk-cell *cdkCellDef='let row' class='visits'>
 			{{ row.visits }}
 		</cdk-cell>
 	</ng-container>
 
 	<ng-container cdkColumnDef='discount'>
-		<cdk-header-cell *cdkHeaderCellDef>Скидка</cdk-header-cell>
+		<cdk-header-cell *cdkHeaderCellDef class='discount'>Скидка</cdk-header-cell>
 
-		<cdk-cell *cdkCellDef='let row'>
-			{{ row.discount }}
+		<cdk-cell *cdkCellDef='let row' class='discount'>
+			{{ row.discount | discount}}
 		</cdk-cell>
 	</ng-container>
 
-	<ng-container cdkColumnDef='link'>
-		<cdk-header-cell *cdkHeaderCellDef>Ссылка</cdk-header-cell>
+	<ng-container cdkColumnDef='loyalty_level'>
+		<cdk-header-cell *cdkHeaderCellDef>Уровень лояльности</cdk-header-cell>
 
 		<cdk-cell *cdkCellDef='let row'>
-			{{ row.link }}
+			{{ row.loyalty_level }}
 		</cdk-cell>
 	</ng-container>
 
 	<ng-container cdkColumnDef='bonus'>
-		<cdk-header-cell *cdkHeaderCellDef>Бонусы</cdk-header-cell>
+		<cdk-header-cell *cdkHeaderCellDef class='bonus'>Бонусы</cdk-header-cell>
 
-		<cdk-cell *cdkCellDef='let row'>
+		<cdk-cell *cdkCellDef='let row' class='bonus'>
 			{{ row.bonus }}
 		</cdk-cell>
 	</ng-container>
@@ -79,18 +89,20 @@
 	</ng-container>
 
 	<ng-container cdkColumnDef='summ'>
-		<cdk-header-cell *cdkHeaderCellDef>Сумма</cdk-header-cell>
+		<cdk-header-cell *cdkHeaderCellDef class='summ'>Сумма</cdk-header-cell>
 
-		<cdk-cell *cdkCellDef='let row'>
+		<cdk-cell *cdkCellDef='let row' class='summ'>
 			{{ row.summ }}
 		</cdk-cell>
 	</ng-container>
 
 	<ng-container cdkColumnDef='delete'>
-		<cdk-header-cell *cdkHeaderCellDef></cdk-header-cell>
+		<cdk-header-cell *cdkHeaderCellDef class='delete'></cdk-header-cell>
 
-		<cdk-cell *cdkCellDef='let row'>
-			<button (click)='deleteClient(row)'><app-icon name='trash'></app-icon></button>
+		<cdk-cell *cdkCellDef='let row' class='delete'>
+			<button (click)='deleteClient(row)'>
+				<app-icon name='trash'></app-icon>
+			</button>
 		</cdk-cell>
 	</ng-container>
 
