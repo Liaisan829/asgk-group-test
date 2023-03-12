@@ -19,6 +19,10 @@ export class ClientService {
 	}
 
 	addClient(data: model_ClientCreate): Observable<model_Pass> {
-		return this.http.post<model_Pass>(`${this.authService.token}/passes`, data)
+		return this.http.post<model_Pass>(`${this.authService.token}/passes`, data);
+	}
+
+	deleteClient(user_id: string): Observable<unknown> {
+		return this.http.delete(`${this.authService.token}/passes/${user_id}`);
 	}
 }

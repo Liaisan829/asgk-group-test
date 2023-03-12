@@ -22,6 +22,7 @@ import { DialogFooterComponent } from '@components/ui/dialog-footer/dialog-foote
 import { SelectComponent } from '@components/forms/select/select.component';
 import { OverlayModule } from "@angular/cdk/overlay";
 import { AddClientDialogComponent } from './components/modals/add-client-dialog/add-client-dialog.component';
+import { ConfirmComponent } from './components/modals/confirm/confirm.component';
 
 @NgModule({
 	declarations: [
@@ -36,6 +37,7 @@ import { AddClientDialogComponent } from './components/modals/add-client-dialog/
 		DialogFooterComponent,
 		SelectComponent,
   AddClientDialogComponent,
+  ConfirmComponent,
 	],
 	imports: [
 		BrowserModule,

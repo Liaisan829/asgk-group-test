@@ -86,6 +86,14 @@
 		</cdk-cell>
 	</ng-container>
 
+	<ng-container cdkColumnDef='delete'>
+		<cdk-header-cell *cdkHeaderCellDef></cdk-header-cell>
+
+		<cdk-cell *cdkCellDef='let row'>
+			<button (click)='deleteClient(row)'><app-icon name='trash'></app-icon></button>
+		</cdk-cell>
+	</ng-container>
+
 	<cdk-row
 		*cdkRowDef='let row; columns: columns'
 	></cdk-row>
