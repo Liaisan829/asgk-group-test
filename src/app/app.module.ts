@@ -12,6 +12,9 @@ import { UrlInterceptorService } from "@services/url-interceptor.service";
 import { AuthInterceptorService } from "@services/auth-interceptor.service";
 import { HomeComponent } from '@pages/home/home.component';
 import { CdkTableModule } from "@angular/cdk/table";
+import {
+	SendPushMessageDialogComponent
+} from '@components/modals/send-push-message-dialog/send-push-message-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -20,6 +23,7 @@ import { CdkTableModule } from "@angular/cdk/table";
 		SignInComponent,
 		InputComponent,
 		HomeComponent,
+		SendPushMessageDialogComponent,
 	],
 	imports: [
 		BrowserModule,
