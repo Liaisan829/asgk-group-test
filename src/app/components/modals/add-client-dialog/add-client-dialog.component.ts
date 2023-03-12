@@ -4,6 +4,7 @@ import { DestroyService } from "@services/destroy.service";
 import { ClientService } from "@services/client.service";
 import { takeUntil } from "rxjs";
 import { DialogRef } from "@angular/cdk/dialog";
+import { ToastService } from "@services/toast.service";
 
 @Component({
 	selector: 'app-add-client-dialog',
@@ -18,7 +19,8 @@ export class AddClientDialogComponent {
 		private fb: FormBuilder,
 		private destroy$: DestroyService,
 		private clientService: ClientService,
-		private dialog: DialogRef
+		private dialog: DialogRef,
+		private toast: ToastService
 	) {
 		this.buildForm();
 	}
@@ -46,8 +48,10 @@ export class AddClientDialogComponent {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe({
 				next: () => {
+					this.toast.success("Клиент успешно добавлен");
 				},
-				error: () => {
+				error: (err) => {
+					this.toast.error(err);
 				},
 				complete: () => {
 					this.dialog.close(true);

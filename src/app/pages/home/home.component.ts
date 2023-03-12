@@ -10,6 +10,7 @@ import {
 import { AddClientDialogComponent } from '@components/modals/add-client-dialog/add-client-dialog.component';
 import { ConfirmComponent } from "@components/modals/confirm/confirm.component";
 import { sortArray } from "@utils/sort-array";
+import { ToastService } from "@services/toast.service";
 
 @Component({
 	selector: 'app-home',
@@ -25,7 +26,8 @@ export class HomeComponent {
 		private destroy$: DestroyService,
 		private clientService: ClientService,
 		private cdr: ChangeDetectorRef,
-		private dialog: Dialog
+		private dialog: Dialog,
+		private toast: ToastService,
 	) {
 		this.getClients();
 	}
@@ -37,6 +39,9 @@ export class HomeComponent {
 				next: (res) => {
 					this.dataSource = res.passes;
 					this.cdr.markForCheck();
+				},
+				error: (err) => {
+					this.toast.error(err);
 				}
 			});
 	}
@@ -53,11 +58,7 @@ export class HomeComponent {
 			.pipe(
 				takeUntil(this.destroy$),
 				filter(dialogResult => !!dialogResult)
-			)
-			.subscribe({
-				next: () => {
-				}
-			});
+			);
 	}
 
 	addClient() {
@@ -82,7 +83,7 @@ export class HomeComponent {
 			backdropClass: 'dialog-backdrop',
 			data: {
 				header: 'Удаление клиента',
-				text: `Вы действительно хотите удалить клиента ${ client.first_name }?`,
+				text: `Вы действительно хотите удалить клиента ${client.first_name}?`,
 				confirm: 'Удалить',
 				cancel: 'Отменить',
 			},
@@ -96,6 +97,12 @@ export class HomeComponent {
 			)
 			.subscribe({
 				next: () => {
+					this.toast.success('Клиент успешно удален');
+				},
+				error: (err) => {
+					this.toast.error(err);
+				},
+				complete: () => {
 					this.getClients();
 				}
 			});
