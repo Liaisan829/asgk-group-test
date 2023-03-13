@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IconComponent } from '@components/ui/icon/icon.component';
 import { SignInComponent } from '@pages/sign-in/sign-in.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { InputComponent } from '@components/forms/input/input.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { UrlInterceptorService } from "@services/url-interceptor.service";
@@ -26,6 +26,7 @@ import { ConfirmComponent } from '@components/modals/confirm/confirm.component';
 import { DiscountPipe } from '@pipes/discount.pipe';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 
 @NgModule({
 	declarations: [
@@ -55,7 +56,9 @@ import { ToastrModule } from "ngx-toastr";
 		ToastrModule.forRoot({
 			timeOut: 3000,
 			closeButton: true,
-		})
+		}),
+		NgMultiSelectDropDownModule.forRoot(),
+		FormsModule
 	],
 	providers: [
 		{

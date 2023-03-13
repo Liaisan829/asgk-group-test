@@ -1,7 +1,12 @@
 <app-dialog>
-	<app-dialog-header>Отправка PUSH сообщения</app-dialog-header>
+	<app-dialog-header>Отправка Push-сообщения</app-dialog-header>
 	<form [formGroup]='form' class='form'>
-<!--		<app-select formControlName='user_id' placeholder='Клиенты' [optionsList]='dialogData.users'></app-select>-->
+		<select formControlName='user_id'>
+			<option value="" disabled selected hidden>Клиент</option>
+			<option [value]='client.user_id' *ngFor='let client of dialogData.users'>
+				{{client.fio}}
+			</option>
+		</select>
 
 		<input type='text' #dateInput (focus)="dateInput.type='datetime-local'" formControlName='date_start' placeholder='Дата отправки'>
 

@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component, Inject, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DestroyService } from "@services/destroy.service";
 import { PushMessageService } from "@services/push-message.service";
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { model_Pass } from "@models/model_Pass";
-import { takeUntil } from "rxjs";
 import { ToastService } from "@services/toast.service";
+import { takeUntil } from "rxjs";
 
 interface DialogData {
-	users: model_Pass[];
+	users: Array<model_Pass>;
 }
 
 @Component({
@@ -18,7 +18,6 @@ interface DialogData {
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SendPushMessageDialogComponent {
-	@ViewChild('dateInput') dateInput!: HTMLInputElement;
 	form!: FormGroup;
 
 	constructor(
